@@ -1,0 +1,48 @@
+        *************** Beginning of data ************************************* 
+0000.10      A*%%TS  SD  20230502  213738  JBLTD10     REL-V7R5M0  5770-WDS     
+0000.20      A*%%EC                                                             
+0000.30      A                                      DSPSIZ(24 80 *DS3)          
+0000.40      A                                      CA03(03 'EXIT')             
+0000.50      A                                      CA02(02 'EXEC')             
+0000.60      A                                      CA06(06 'ADD')              
+0000.70      A                                      CA12(12 'BACK')             
+0000.80      A          R KOT                                                   
+0000.90      A                                  2 28'Student handling program'  
+0001.00      A                                      DSPATR(RI)                  
+0001.10      A          R BOT                                                   
+0001.20      A                                      OVERLAY                     
+0001.30      A                                 21  3'-------------------------- 
+0001.40      A                                      --------------------------- 
+0001.50      A                                      ------'                     
+0001.60      A                                 22  3'F3-exit'                   
+0001.70      A                                 22 13'F6-add'                 
+0001.80      A                                 23  3'2-update'               
+0001.90      A                                 23 13'4-delete'               
+0002.00      A                                 23 23'8-display'              
+0002.10      A          R SFLR                      SFL                      
+0002.20      A*%%TS  SD  20230502  203958  JBLTD10     REL-V7R5M0  5770-WDS  
+0002.30      A            OP             1A  B  7  3                         
+0002.40      A            ID             9S 0O  7  8                         
+0002.50      A            LNAME         15A  O  7 21    
+0002.60      A            NAME          15A  O  7 38                        
+0002.70      A          R CTLR                      SFLCTL(SFLR)            
+0002.80      A*%%TS  SD  20230502  213738  JBLTD10     REL-V7R5M0  5770-WDS 
+0002.90      A                                      OVERLAY                 
+0003.00      A  31                                  SFLDSP                  
+0003.10      A  32                                  SFLDSPCTL               
+0003.20      A  34                                  SFLCLR                  
+0003.30      A  33                                  SFLEND(*MORE)           
+0003.40      A                                      SFLSIZ(0011)     
+0003.50      A                                      SFLPAG(0010)      
+0003.60      A            POS            4S 0H      SFLRCDNBR         
+0003.70      A                                  6  3'OP'              
+0003.80      A                                      DSPATR(UL)        
+0003.90      A                                  6  8'ID'              
+0004.00      A                                      DSPATR(UL)        
+0004.10      A                                  6 21'שם משפחה'        
+0004.20      A                                      DSPATR(UL)        
+0004.30      A                                  6 38'FIRST NAME'    
+0004.40      A                                      DSPATR(UL)                  
+        ****************** End of data **************************************** 
+                                                                                
+                                                                            
