@@ -1,0 +1,71 @@
+ FMT FX FFilename++IPEASF.....L.....A.Device+.Keywords+++++++++++++++++++++++++ 
+        *************** Beginning of data ************************************* 
+0001.00 FSTUDENT1  UF A E           K DISK                                      
+0002.00 FSFLTEST11 CF   E             WORKSTN                                   
+0003.00 F                                     SFILE(SFLR:RRN)                   
+0004.00 C******************************************************************     
+0005.00 C     *IN03         DOWEQ     *OFF                                      
+0006.00 C                   WRITE     KOT                                       
+0007.00 C                   WRITE     BOT                                       
+0008.00 C*                                                                      
+0009.00 C                   EXSR      STRTIP                                    
+0010.00 C                   EXFMT     CTLR                                      
+0011.00 C     *IN06         IFEQ      *ON                                       
+0012.00 C                   EXSR      ADD                                       
+0013.00 C                   ELSE                                                
+0014.00 C                   EXSR      TIPOP                                     
+0015.00 C                   ENDIF                                               
+0016.00 C                   ENDDO            
+0017.00 C                   SETON                                        LR     
+0018.00 C*                                                                      
+0019.00 C     STRTIP        BEGSR                                               
+0020.00 C                   SETON                                        3234   
+0021.00 C                   WRITE     CTLR                                      
+0022.00 C                   SETOFF                                       34     
+0023.00 C                   Z-ADD     0             RRN               4 0       
+0024.00 C     *LOVAL        SETLL     RSTUDENT                           9999   
+0025.00 C                   READ      RSTUDENT                             9999 
+0026.00 C     *IN99         DOWEQ     *OFF                                      
+0027.00 C                   MOVE      *BLANK        OP                          
+0028.00 C                   ADD       1             RRN                         
+0029.00 C                   WRITE     SFLR                                      
+0030.00 C                   READ      RSTUDENT                             9999 
+0031.00 C                   ENDDO                                               
+0032.00 C*                                                                      
+0033.00 C     RRN           IFGT      0                                         
+0034.00 C                   SETON                                        3133   
+0035.00 C                   Z-ADD     1             POS                         
+0036.00 C                   ENDIF                                               
+0037.00 C                   ENDSR                                               
+0038.00 C*******************************************************************    
+0039.00 C     TIPOP         BEGSR                                               
+0040.00 C                   READC     SFLR                                 9999 
+0041.00 C     *IN99         DOWEQ     *OFF                                      
+0042.00 C                   SETOFF                                       525458 
+0043.00 C     OP            IFEQ      '2'                                       
+0044.00 C*                  EXSR      UPDATE                                    
+0045.00 C                   ENDIF                                               
+0046.00 C     OP            IFEQ      '4'                                       
+0047.00 C*                  EXSR      DELETE                                    
+0048.00 C                   ENDIF                                               
+0049.00 C     OP            IFEQ      '8'                                       
+0050.00 C                   EXSR      DISPLAY                                   
+0051.00 C                   ENDIF                                               
+0052.00 C                   READC     SFLR                                 9999 
+0053.00 C                   ENDDO                                               
+0054.00 C                   MOVEL(P)  *BLANKS       OP                          
+0055.00 C                   ENDSR                                               
+0056.00 C*                                                                      
+0057.00 C     DISPLAY       BEGSR                                               
+0058.00 C                   SETON                                        58     
+0059.00 C     *IN03         DOWEQ     *OFF                                      
+0060.00 C     *IN12         ANDEQ     *OFF                                      
+0061.00 C                   EXFMT     ALLF                
+0062.00 C     ID            CHAIN     RSTUDENT                                  
+0063.00 C                   ENDDO                                               
+0064.00 C                   ENDSR                                               
+0065.00 C*                                                                      
+0066.00 C*                                                                      
+0067.00 C     ADD           BEGSR                                               
+0068.00 C                   ENDSR                                               
+        ****************** End of data **************************************** 
