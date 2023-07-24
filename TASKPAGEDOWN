@@ -1,0 +1,80 @@
+        *************** Beginning of data ************************************
+0001.00 FPSTUDENT  IF A E           K DISK                                    
+0002.00 FSFL1      CF   E             WORKSTN                                 
+0003.00 F                                     SFILE(SFLR:RRN)                 
+0004.01 DPGSIZE           S              1  0 INZ(2)                          
+0004.03 C*------------------------------------------------------------------- 
+0004.04 C                   Z-ADD     0             STID              9 0     
+0004.06 C     *LOVAL        SETLL     RSTUDENT                           9999 
+0004.07 C                   EXSR      FILLDOWN                                
+0004.08 C                   EXFMT     CTLR                                    
+0004.09 C     *IN03         DOWEQ     *OFF                                    
+0004.10 C     *IN99         IFEQ      *OFF                                    
+0004.11 C     *IN71         ANDEQ     *ON                                     
+0004.12 C                   EXSR      FILLDOWN                                
+0004.13 C                   ENDIF                                             
+0004.14 C     *IN98         IFEQ      *OFF                                    
+0004.15 C     *IN72         ANDEQ     *ON  
+0004.16 C                   EXSR      FILLUP                                   
+0009.00 C                   ENDIF                                              
+0011.00 C                   EXFMT     CTLR                                     
+0015.00 C                   ENDDO                                              
+0016.00 C                   SETON                                        LR    
+0017.00 C*                                                                     
+0018.00 C     FILLDOWN      BEGSR                                              
+0018.01 C                   SETON                                        3234  
+0018.02 C                   WRITE     CTLR                                     
+0018.03 C                   SETOFF                                       34    
+0018.04 C                   Z-ADD     0             RRN               4 0      
+0018.05 C                   Z-ADD     0             COUNT             1 0      
+0019.01 C     COUNT         DOWLT     PGSIZE                                   
+0019.02 C     *IN99         ANDEQ     *OFF                                     
+0019.03 C                   READ      RSTUDENT                             9999
+0020.01 C  N98              DO                                              
+0020.03 C*                  MOVE      *BLANKS       OP                      
+0020.04 C                   ADD       1             RRN                     
+0020.05 C                   WRITE     SFLR                                  
+0020.06 C                   ADD       1             COUNT                   
+0020.07 C                   ENDDO                                           
+0020.08 C                   ENDDO                                           
+0029.01 C*                                                                  
+0030.00 C     RRN           IFGT      0                                     
+0031.00 C                   SETON                                        31 
+0031.01 C                   Z-ADD     RRN           POS                     
+0032.00 C                   ENDIF                                           
+0032.01 C   99              SETON                                        33 
+0033.00 C                   ENDSR                                           
+0037.00 C*                                                                  
+0038.00 C     FILLUP        BEGSR                                              
+0039.00 C     1             CHAIN     SFLR                               9898  
+0040.00 C     SID           SETLL     RSTUDENT                           9898  
+0041.00 C                   Z-ADD     SID           STID                       
+0042.00 C                   SETON                                        3234  
+0043.00 C                   WRITE     CTLR                                     
+0044.00 C                   SETOFF                                       34    
+0045.00 C                   Z-ADD     0             RRN               4 0      
+0046.00 C                   Z-ADD     0             COUNT             1 0      
+0047.00 C     COUNT         DOWLT     PGSIZE                                   
+0048.00 C     *IN98         ANDEQ     *OFF                                     
+0049.00 C                   READP     RSTUDENT                             9898
+0050.00 C  N98              DO                                                 
+0051.00 C                   ADD       1             COUNT                      
+0052.00 C                   ENDDO                                              
+0053.00 C                   ENDDO                                              
+0054.00 C                   Z-ADD     0             COUNT                      
+0055.00 C     COUNT         DOWLT     PGSIZE                                   
+0056.00 C     *IN98         ANDEQ     *OFF                                     
+0057.00 C                   READ      RSTUDENT                             9898
+0058.00 C  N98              DO                                                 
+0059.00 C*                  MOVE      *BLANKS       OP                         
+0060.00 C                   ADD       1             RRN                        
+0061.00 C                   WRITE     SFLR                                     
+0062.00 C                   ADD       1             COUNT                      
+0063.00 C                   ENDDO                                              
+0064.00 C                   ENDDO                                              
+0065.00 C     RRN           IFGT      0                                        
+0066.00 C                   SETON                                        31    
+0067.00 C                   Z-ADD     RRN           POS                        
+0068.00 C                   ENDIF                                              
+0069.00 C                   ENDSR                                              
+        ****************** End of data ****************************************
