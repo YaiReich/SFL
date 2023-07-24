@@ -1,8 +1,6 @@
  FMT FX FFilename++IPEASF.....L.....A.Device+.Keywords+++++++++++++++++++++++++ 
         *************** Beginning of data ************************************* 
-0001.00 FSTUDENT1  UF A E           K DISK                                      
-0002.00 FSFLTEST11 CF   E             WORKSTN                                   
-0003.00 F                                     SFILE(SFLR:RRN)                   
+  
 0004.00 C******************************************************************     
 0005.00 C     *IN03         DOWEQ     *OFF                                      
 0006.00 C                   WRITE     KOT                                       
