@@ -4,7 +4,7 @@
 0002.00 FSFLTEST11 CF   E             WORKSTN                                   
 0003.00 F                                     SFILE(SFLR:RRN)                   
 0004.00 C******************************************************************     
-0005.00 C     *IN03         DOWEQ     *OFF                                      
+0005.00 C                   DOW       *IN03=*OFF                                      
 0006.00 C                   WRITE     KOT                                       
 0007.00 C                   WRITE     BOT                                       
 0008.00 C*                                                                      
